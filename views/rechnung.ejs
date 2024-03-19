@@ -1,0 +1,26 @@
+<!-- Formular für die Rechnungserfassung -->
+<form action="/rechnung" method="POST">
+    <div>
+        <label for="betrag">Betrag</label>
+        <input type="number" id="betrag" name="betrag" required>
+    </div>
+    <div>
+        <label for="beschreibung">Beschreibung</label>
+        <input type="text" id="beschreibung" name="beschreibung" required>
+    </div>
+    <div>
+        <label for="konto">Konto</label>
+        <select id="konto" name="konto" required>
+            <option value="Kasse">Kasse</option>
+            <option value="Bank">Bank</option>
+        </select>
+    </div>
+    <div>
+        <label for="kategorie">Kategorie</label>
+        <select id="kategorie" name="kategorie" required>
+            <option value="Warenaufwand">Warenaufwand</option>
+            <option value="Warenertrag">Warenertrag</option>
+        </select>
+    </div>
+    <button type="submit">Rechnung speichern</button>
+</form>
