@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilanz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Erfolgsrechnung</h1>
+        <table border="1">
+            <tr>
+                <th>Soll (Warenaufwand)</th>
+                <th>Haben (Warenertrag)</th>
+            </tr>
+            <tr>
+                <td><%= erfolgsrechnung.warenaufwand %></td>
+                <td><%= erfolgsrechnung.warenertrag %></td>
+            </tr>
+        </table>
+        <h3><%= erfolgsrechnung.differenz %></h3>
+
+        <br>
+        <hr>
+
+        <h1>Bilanz</h1>
+        <table border="1">
+            <tr>
+                <th>Soll (Kasse/Bank)</th>
+                <th>Haben (Kasse/Bank)</th>
+            </tr>
+            <tr>
+                <td><%= bilanz.Soll %></td>
+                <td><%= bilanz.Haben %></td>
+            </tr>
+        </table>
+        <h3><%= bilanz.kasseBankDiffernz %></h3>
+
+        <div class="button-container">
+            <a href="/" class="back-button">Zurück</a>
+        </div>
+    </div>
+</body>
+</html>

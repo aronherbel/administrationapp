@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logout</title>
+    <title>Home</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* Hintergrundfarbe außerhalb des Containers */
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center; /* Container horizontal zentrieren */
-            align-items: center; /* Container vertikal zentrieren */
-            min-height: 100vh; /* Vollständige Bildschirmhöhe verwenden */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
         }
 
         .container {
@@ -30,10 +31,6 @@
 
         h1 {
             color: #333;
-        }
-
-        form {
-            margin-top: 20px;
         }
 
         button {
@@ -58,28 +55,58 @@
             padding: 8px 12px;
         }
 
+        .change-name-form {
+            margin-top: 20px;
+        }
+
+        .change-name-form input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .change-name-form button {
+            padding: 8px 20px;
+        }
+
         .action-buttons {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             width: 100%;
             margin-top: 20px;
         }
 
+        .action-buttons form {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
         .action-buttons button {
-            width: 45%;
+            flex-grow: 1;
+            margin: 0 5px;
         }
     </style>
 </head>
 <body>
-    <form action="/logout?_method=DELETE" method="POST" class="logout-button">
+    <form class="logout-button" action="/logout?_method=DELETE" method="POST">
         <button type="submit">Log Out</button>
     </form>
 
     <div class="container">
         <h1 id="userName">Hi <%= name %>!</h1>
+        <form class="change-name-form" action="/changeName" method="PATCH">
+            <input type="text" name="newName" placeholder="Neuer Name" required>
+            <button type="submit">Namen ändern</button>
+        </form>          
         <div class="action-buttons">
-            <button id="newInvoiceBtn">Neue Rechnung erfassen</button>
-            <button id="balanceBtn">Bilanz ausgeben</button>
+            <form action="/rechnung" method="GET">
+                <button id="newInvoiceBtn">Rechnung erfassen</button>
+            </form>
+            <form action="/bilanz" method="GET">
+                <button id="balanceBtn">Bilanz ausgeben</button>
+            </form>
         </div>
     </div>
 </body>
