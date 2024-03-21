@@ -41,17 +41,21 @@
     input[type="text"],
     input[type="email"],
     input[type="password"] {
-        width: 90%; /* Breite auf 90% des Containers festlegen */
+        width: 90%;
         padding: 10px;
         margin-bottom: 15px;
         border: 1px solid #ccc;
         border-radius: 4px;
     }
 
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
     button[type="submit"] {
         width: 100%;
-        padding: 15px; /* Größere Polsterung für den Button */
-        font-size: 16px; /* Größere Schriftgröße für den Button */
+        padding: 15px;
+        font-size: 16px;
         background-color: #007bff;
         color: #fff;
         border: none;
@@ -68,7 +72,7 @@
         display: block;
         text-align: center;
         margin-top: 10px;
-        font-size: 14px; /* Kleinere Schriftgröße für den Link */
+        font-size: 14px;
         color: #007bff;
         text-decoration: none;
     }
@@ -89,6 +93,10 @@
             <div>
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <input type="checkbox" id="isBuchhalter" name="isBuchhalter" value="true">
+                <label for="isBuchhalter">Ich bin ein Buchhalter</label>
             </div>
             <button type="submit">Register</button>
         </form>

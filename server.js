@@ -19,6 +19,7 @@ const User = mongoose.model(
         name: String,
         email: String,
         password: String,
+        isBuchhalter: Boolean,
     }, 'user');
 
 
@@ -71,7 +72,7 @@ initializePassport(
 
 // Routen
 app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name });
+    res.render('index.ejs', { name: req.user.name, isBuchhalter: req.user.isBuchhalter});
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -97,7 +98,8 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
         const newUser = new User({
             name: req.body.name,
             email: req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+            isBuchhalter: req.body.isBuchhalter
         });
         await newUser.save();
         res.redirect('/login');

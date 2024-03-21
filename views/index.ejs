@@ -101,13 +101,16 @@
             <button type="submit">Namen ändern</button>
         </form>          
         <div class="action-buttons">
-            <form action="/rechnung" method="GET">
-                <button id="newInvoiceBtn">Rechnung erfassen</button>
+            <% if(isBuchhalter == true) {%>
+            <form action="/rechnung" method="GET" id="rechnungForm">
+                <button id="buchhalterBtn">Rechnung erfassen</button>
             </form>
+            <% } %>
             <form action="/bilanz" method="GET">
                 <button id="balanceBtn">Bilanz ausgeben</button>
             </form>
         </div>
     </div>
+
 </body>
 </html>
